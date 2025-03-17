@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 
 const Navbar = () => {
@@ -21,6 +22,13 @@ const Navbar = () => {
     };
   }, [scrolled]);
 
+  const navItems = [
+    { name: 'Features', path: '/#features' },
+    { name: 'Process', path: '/#process' },
+    { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/#contact' }
+  ];
+
   return (
     <motion.header
       initial={{ y: -100, opacity: 0 }}
@@ -34,29 +42,30 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <motion.a 
-          href="#"
-          className="text-2xl font-bold"
+        <motion.div
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          DeepSee
-        </motion.a>
+          <Link to="/" className="text-2xl font-bold">DeepSee</Link>
+        </motion.div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {['Features', 'Process', 'About', 'Contact'].map((item, i) => (
-            <motion.a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="nav-link"
+          {navItems.map((item, i) => (
+            <motion.div
+              key={item.name}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.3 + (i * 0.1) }}
-              whileHover={{ y: -2 }}
             >
-              {item}
-            </motion.a>
+              <Link 
+                to={item.path}
+                className="nav-link"
+                whileHover={{ y: -2 }}
+              >
+                {item.name}
+              </Link>
+            </motion.div>
           ))}
           
           <motion.button
@@ -110,18 +119,21 @@ const Navbar = () => {
         transition={{ duration: 0.3 }}
       >
         <div className="container mx-auto px-6 py-24 flex flex-col items-center justify-center space-y-8">
-          {['Features', 'Process', 'About', 'Contact'].map((item, i) => (
-            <motion.a
-              key={item}
-              href={`#${item.toLowerCase()}`}
-              className="text-2xl font-medium nav-link"
+          {navItems.map((item, i) => (
+            <motion.div
+              key={item.name}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.1 * i }}
-              onClick={() => setMenuOpen(false)}
             >
-              {item}
-            </motion.a>
+              <Link
+                to={item.path}
+                className="text-2xl font-medium nav-link"
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            </motion.div>
           ))}
           
           <motion.button
