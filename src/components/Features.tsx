@@ -22,7 +22,8 @@ const Features = () => {
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
         </svg>
-      )
+      ),
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=400"
     },
     {
       title: "Lightning Performance",
@@ -38,7 +39,8 @@ const Features = () => {
           <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
           <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
         </svg>
-      )
+      ),
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=400"
     },
     {
       title: "Seamless Integration",
@@ -48,7 +50,8 @@ const Features = () => {
           <polyline points="16 18 22 12 16 6"></polyline>
           <polyline points="8 6 2 12 8 18"></polyline>
         </svg>
-      )
+      ),
+      image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400"
     },
     {
       title: "Advanced Analytics",
@@ -59,7 +62,8 @@ const Features = () => {
           <path d="M18.4 17.2a9 9 0 1 0-2.3-13.7"></path>
           <path d="M21 21l-6-6"></path>
         </svg>
-      )
+      ),
+      image: "https://images.unsplash.com/photo-1649972904349-6e44c42644a7?auto=format&fit=crop&w=400"
     },
     {
       title: "Robust Security",
@@ -69,7 +73,8 @@ const Features = () => {
           <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
           <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
         </svg>
-      )
+      ),
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400"
     },
     {
       title: "Dedicated Support",
@@ -78,12 +83,13 @@ const Features = () => {
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
         </svg>
-      )
+      ),
+      image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=400"
     }
   ];
 
   return (
-    <section id="features" ref={ref} className="section-padding bg-secondary/50">
+    <section id="features" ref={ref} className="section-padding bg-gradient-to-b from-white to-purple-50">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -91,7 +97,7 @@ const Features = () => {
           variants={slideUp()}
           className="text-center mb-16"
         >
-          <div className="chip bg-primary/10 text-primary mb-4">
+          <div className="chip modern-gradient-1 text-white mb-4">
             Key Features
           </div>
           <h2 className="heading-lg mb-4">Designed for excellence</h2>
@@ -110,9 +116,16 @@ const Features = () => {
             <motion.div
               key={index}
               variants={staggerItem}
-              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-5px] glassmorphism"
+              className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:translate-y-[-5px] card-gradient"
             >
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4">
+              <div className={`w-full h-40 mb-6 rounded-lg overflow-hidden`}>
+                <img 
+                  src={feature.image} 
+                  alt={feature.title} 
+                  className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                />
+              </div>
+              <div className="w-12 h-12 rounded-lg modern-gradient-2 flex items-center justify-center text-white mb-4">
                 {feature.icon}
               </div>
               <h3 className="heading-sm mb-3">{feature.title}</h3>

@@ -11,7 +11,7 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 210 100% 50%;
+    --primary: 252 56% 56%;
     --primary-foreground: 0 0% 100%;
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
@@ -100,6 +100,26 @@
   .content-transition {
     transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
       transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .modern-gradient-1 {
+    @apply bg-gradient-to-br from-purple-500 to-indigo-600;
+  }
+
+  .modern-gradient-2 {
+    @apply bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-500;
+  }
+
+  .modern-gradient-3 {
+    @apply bg-gradient-to-br from-blue-400 to-emerald-400;
+  }
+
+  .modern-gradient-4 {
+    @apply bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-white/80 to-white/30 backdrop-blur-sm;
   }
 }
 

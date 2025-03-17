@@ -36,7 +36,7 @@ const Hero = () => {
           animate={controls}
           variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
         >
-          <motion.div variants={fadeIn(0.2)} className="chip bg-primary/10 text-primary mb-6">
+          <motion.div variants={fadeIn(0.2)} className="chip modern-gradient-2 text-white mb-6">
             Introducing DeepSee
           </motion.div>
 
@@ -44,7 +44,7 @@ const Hero = () => {
             variants={slideRight(0.3)}
             className="heading-xl text-balance mb-6"
           >
-            Elevate your digital <span className="text-primary">experience</span>
+            Elevate your digital <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-600">experience</span>
           </motion.h1>
 
           <motion.p 
@@ -60,15 +60,15 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 mb-12"
           >
             <motion.button
-              className="bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-              whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(0, 100, 255, 0.2)" }}
+              className="modern-gradient-1 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+              whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(139, 92, 246, 0.3)" }}
               whileTap={{ scale: 0.95 }}
             >
               Get Started
             </motion.button>
             
             <motion.button
-              className="border border-border hover:border-primary/30 px-8 py-3 rounded-full hover:bg-primary/5 transition-all duration-300"
+              className="border border-border hover:border-purple-300 px-8 py-3 rounded-full hover:bg-purple-50 transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -100,7 +100,7 @@ const Hero = () => {
         >
           <motion.div 
             variants={blurIn(0.4)}
-            className="w-full h-96 sm:h-[500px] bg-gradient-to-br from-primary/20 to-primary/5 rounded-3xl overflow-hidden flex items-center justify-center glassmorphism"
+            className="w-full h-96 sm:h-[500px] modern-gradient-3 rounded-3xl overflow-hidden flex items-center justify-center glassmorphism"
           >
             <motion.div 
               variants={slideUp(0.6)}
@@ -110,14 +110,11 @@ const Hero = () => {
                 variants={fadeIn(0.8)}
                 className="text-center p-6"
               >
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                  </svg>
-                </div>
+                <img 
+                  src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=400" 
+                  alt="Digital Interface" 
+                  className="w-full h-40 object-cover rounded-lg mb-4"
+                />
                 <h3 className="heading-sm mb-2">User-Centered Design</h3>
                 <p className="text-sm text-muted-foreground">
                   Crafted for humans, engineered for performance
@@ -129,11 +126,11 @@ const Hero = () => {
           {/* Decorative elements */}
           <motion.div 
             variants={slideLeft(0.7)}
-            className="absolute -top-6 -right-6 w-20 h-20 rounded-2xl bg-primary/10 rotate-12 glassmorphism"
+            className="absolute -top-6 -right-6 w-20 h-20 rounded-2xl modern-gradient-4 rotate-12 glassmorphism"
           />
           <motion.div 
             variants={slideRight(0.8)}
-            className="absolute -bottom-4 -left-4 w-24 h-24 rounded-2xl bg-primary/15 -rotate-12 glassmorphism"
+            className="absolute -bottom-4 -left-4 w-24 h-24 rounded-2xl modern-gradient-2 -rotate-12 glassmorphism"
           />
         </motion.div>
       </div>
