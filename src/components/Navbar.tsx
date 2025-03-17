@@ -3,10 +3,13 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
+import { Moon, Sun } from 'lucide-react';
+import { useTheme } from '@/contexts/ThemeContext';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,15 +64,34 @@ const Navbar = () => {
               <Link 
                 to={item.path}
                 className="nav-link"
-                whileHover={{ y: -2 }}
               >
                 {item.name}
               </Link>
             </motion.div>
           ))}
           
+          {/* Dark mode toggle button */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3, delay: 0.7 }}
+            className="flex items-center"
+          >
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? (
+                <Sun className="h-5 w-5" />
+              ) : (
+                <Moon className="h-5 w-5" />
+              )}
+            </button>
+          </motion.div>
+          
           <motion.button
-            className="bg-primary px-6 py-2 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300"
+            className="bg-primary px-6 py-2 rounded-full text-primary-foreground shadow-lg hover:shadow-xl transition-all duration-300"
             whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(0, 100, 255, 0.2)" }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, scale: 0.8 }}
@@ -81,7 +103,20 @@ const Navbar = () => {
         </nav>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        <div className="md:hidden flex items-center gap-4">
+          {/* Dark mode toggle button (mobile) */}
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? (
+              <Sun className="h-5 w-5" />
+            ) : (
+              <Moon className="h-5 w-5" />
+            )}
+          </button>
+        
           <button 
             onClick={() => setMenuOpen(!menuOpen)}
             className="relative z-50 w-10 h-10 flex items-center justify-center"
@@ -137,7 +172,7 @@ const Navbar = () => {
           ))}
           
           <motion.button
-            className="mt-4 bg-primary px-8 py-3 rounded-full text-white shadow-lg text-lg"
+            className="mt-4 bg-primary px-8 py-3 rounded-full text-primary-foreground shadow-lg text-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, scale: 0.8 }}

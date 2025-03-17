@@ -29,6 +29,28 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 252 56% 56%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 5% 64.9%;
+  }
+
   * {
     @apply border-border;
     box-sizing: border-box;
@@ -50,7 +72,7 @@
 
 @layer components {
   .glassmorphism {
-    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-md;
+    @apply bg-white/70 backdrop-blur-lg border border-white/20 shadow-md dark:bg-black/40 dark:border-white/10;
   }
 
   .heading-xl {
@@ -119,7 +141,7 @@
   }
 
   .card-gradient {
-    @apply bg-gradient-to-br from-white/80 to-white/30 backdrop-blur-sm;
+    @apply bg-gradient-to-br from-white/80 to-white/30 backdrop-blur-sm dark:from-gray-800/80 dark:to-gray-900/30;
   }
 }
 
