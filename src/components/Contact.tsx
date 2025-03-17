@@ -1,7 +1,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation, useInView } from 'framer-motion';
-import { slideLeft, slideRight, slideUp } from '@/utils/animations';
+import { slideLeft, slideRight, slideUp, fadeIn } from '@/utils/animations';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
