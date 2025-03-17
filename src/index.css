@@ -125,19 +125,19 @@
   }
 
   .modern-gradient-1 {
-    @apply bg-gradient-to-br from-purple-500 to-indigo-600;
+    @apply bg-gradient-to-br from-purple-500 to-indigo-600 dark:from-purple-600 dark:to-indigo-700;
   }
 
   .modern-gradient-2 {
-    @apply bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-500;
+    @apply bg-gradient-to-r from-pink-400 via-purple-500 to-indigo-500 dark:from-pink-500 dark:via-purple-600 dark:to-indigo-600;
   }
 
   .modern-gradient-3 {
-    @apply bg-gradient-to-br from-blue-400 to-emerald-400;
+    @apply bg-gradient-to-br from-blue-400 to-emerald-400 dark:from-blue-500 dark:to-emerald-500;
   }
 
   .modern-gradient-4 {
-    @apply bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500;
+    @apply bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500 dark:from-rose-500 dark:via-fuchsia-600 dark:to-indigo-600;
   }
 
   .card-gradient {
@@ -148,6 +148,14 @@
 @layer utilities {
   .text-shadow {
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  }
+  
+  .dark-mode-text {
+    @apply text-white dark:text-white;
+  }
+  
+  .dark-mode-bg {
+    @apply bg-white dark:bg-gray-800;
   }
 }
 

@@ -10,6 +10,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const isDark = theme === 'dark';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,7 +71,7 @@ const Navbar = () => {
             </motion.div>
           ))}
           
-          {/* Dark mode toggle button */}
+          {/* Dark mode toggle button with improved visibility */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -79,14 +80,20 @@ const Navbar = () => {
           >
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              className={cn(
+                "p-2 rounded-full transition-all duration-300 flex items-center justify-center",
+                isDark 
+                  ? "bg-gray-700 hover:bg-gray-600 text-yellow-300" 
+                  : "bg-amber-100 hover:bg-amber-200 text-amber-600"
+              )}
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? (
+              {isDark ? (
                 <Sun className="h-5 w-5" />
               ) : (
                 <Moon className="h-5 w-5" />
               )}
+              <span className="ml-2 text-sm font-medium">{isDark ? 'Light' : 'Dark'}</span>
             </button>
           </motion.div>
           
@@ -104,13 +111,18 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center gap-4">
-          {/* Dark mode toggle button (mobile) */}
+          {/* Dark mode toggle button (mobile) - improved version */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+            className={cn(
+              "p-2 rounded-full transition-all duration-300",
+              isDark 
+                ? "bg-gray-700 text-yellow-300" 
+                : "bg-amber-100 text-amber-600"
+            )}
             aria-label="Toggle theme"
           >
-            {theme === 'dark' ? (
+            {isDark ? (
               <Sun className="h-5 w-5" />
             ) : (
               <Moon className="h-5 w-5" />
